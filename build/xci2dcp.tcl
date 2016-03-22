@@ -8,7 +8,7 @@ if { $::argc == 1 } {
     synth_ip [get_ips *]
     close_project
 } else {
-    puts "USAGE: source syncore.tcl <path/filename.xci>"
+    puts "USAGE: source xci2dcp.tcl <path/filename.xci>"
 }
 
 
