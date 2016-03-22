@@ -36,11 +36,11 @@ if { $::argc > 1 } {
     # get the top entity name from the target.
     set top [file rootname [file tail $target]]
     synth_design -top $top 
-    write_checkpoint $target
+    write_checkpoint -force $target
     close_project
 } else {
-    puts "This script converts source files (.dci, .v, .vhd, .vhdl) to a target .dcp file."
-    puts "USAGE: source hdl2dcp.tcl <path/target.dci> <path/source.x> <path/source.x> <path/source.x> <path/source.x> ... "
+    puts "This script converts source files (.dcp, .v, .vhd, .vhdl) to a target .dcp file."
+    puts "USAGE: source hdl2dcp.tcl <path/target.dcp> <path/source.x> <path/source.x> <path/source.x> <path/source.x> ... "
 }
 
 
