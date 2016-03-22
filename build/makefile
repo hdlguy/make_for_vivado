@@ -1,16 +1,22 @@
 #
-all: cores ../hdl/sig_gen.dcp
+all: cores ../hdl/top.bit
 
 cores: ../cores/c_counter_binary_0/c_counter_binary_0.dcp ../cores/clk_wiz_0/clk_wiz_0.dcp ../cores/dds_compiler_0/dds_compiler_0.dcp
 
-../hdl/sig_gen.dcp: ../hdl/sig_gen.v ../cores/dds_compiler_0/dds_compiler_0.dcp ../cores/c_counter_binary_0/c_counter_binary_0.dcp
-	vivado -mode batch -notrace -nolog -nojournal -source hdl2dcp.tcl -tclargs $@ $^
+../hdl/top.bit: ../hdl/top.v ../hdl/top.xdc ../hdl/sig_gen.dcp ../cores/clk_wiz_0/clk_wiz_0.dcp
+	vivado -mode batch -notrace -nolog -nojournal -source vcomp.tcl -tclargs $@ $^
+
+../hdl/sig_gen.dcp: ../hdl/sig_gen.v ../cores/dds_compiler_0/dds_compiler_0.dcp ../cores/c_counter_binary_0/c_counter_binary_0.dcp ../hdl/sig_gen.xdc
+	vivado -mode batch -notrace -nolog -nojournal -source vcomp.tcl -tclargs $@ $^
 
 %.dcp: %.xci
 	vivado -mode batch -notrace -nolog -nojournal -source xci2dcp.tcl -tclargs $<
 
 .PHONY: clean
 clean:
-	rm ../cores/c_counter_binary_0/c_counter_binary_0.dcp
+	rm \
+ 	../cores/c_counter_binary_0/c_counter_binary_0.dcp \
+	../cores/clk_wiz_0/clk_wiz_0.dcp \
+	../cores/dds_compiler_0/dds_compiler_0.dcp
 
 

@@ -28,6 +28,10 @@ if { $::argc > 1 } {
                 puts "presynthesized checkpoint filetype detected"
                 read_checkpoint $prereq
             }
+            .xdc {
+                puts "presynthesized checkpoint filetype detected"
+                read_xdc $prereq
+            }
             default {
                 puts "WARNING: Could not determine file type."
             }
