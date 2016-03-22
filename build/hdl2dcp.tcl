@@ -1,7 +1,47 @@
-create_project -in_memory -part xc7a15tcpg236-2 proj
-read_ip ../cores/dds_compiler_0/dds_compiler_0.xci
-read_ip ../cores/c_counter_binary_0/c_counter_binary_0.xci
-read_verilog -sv ../hdl/sig_gen.v
-synth_design -top sig_gen
-write_checkpoint sig_gen.dcp
+# hdl2dcp.tcl
+# This TCL script is intended to be called by gnu make as part of a build system for the Vivado compiler collection.
+# The first argument is the target file. The rest of the arguments are interpreted as input source files.
+if { $::argc > 1 } {
+    create_project -in_memory -part xc7a15tcpg236-2 proj
+    set target [lindex $argv 0]
+    set target_type [file extension $target]
+    puts "targetfile = $target"
+    for {set i 1} {$i<$argc} {incr i} {
+        set prereq [lindex $argv $i]
+        puts "prerequisite file = $prereq"
+        set prereq_type [file extension $prereq]
+        puts "prereq type = $prereq_type"
+        switch $prereq_type {
+            .v {
+                puts "verilog filetype detected"
+                read_verilog -sv $prereq
+            }
+            .vhd {
+                puts "VHDL filetype detected"
+                read_vhdl $prereq
+            }
+            .vhdl {
+                puts "VHDL filetype detected"
+                read_vhdl $prereq
+            }
+            .dcp {
+                puts "presynthesized checkpoint filetype detected"
+                read_checkpoint $prereq
+            }
+            default {
+                puts "WARNING: Could not determine file type."
+            }
+        }
+    }
+    # get the top entity name from the target.
+    set top [file rootname [file tail $target]]
+    synth_design -top $top 
+    write_checkpoint $target
+    close_project
+} else {
+    puts "This script converts source files (.dci, .v, .vhd, .vhdl) to a target .dcp file."
+    puts "USAGE: source hdl2dcp.tcl <path/target.dci> <path/source.x> <path/source.x> <path/source.x> <path/source.x> ... "
+}
+
+
 
