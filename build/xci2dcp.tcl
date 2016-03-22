@@ -1,6 +1,4 @@
 if { $::argc == 1 } {
-    puts [lindex $argv 0]
-
     create_project -in_memory -part xc7a15tcpg236-2 proj
     read_ip  [lindex $argv 0]
     upgrade_ip [get_ips *]
