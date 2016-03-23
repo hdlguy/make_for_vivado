@@ -1,10 +1,10 @@
 // sig_gen.v
 module top (
     input   logic   clk_in,
+    //output  logic   [15:0]  q,
     output  logic   [7:0]   sin_out,
     output  logic   [7:0]   cos_out,
-    output  logic           dcm_locked,
-    output  logic   [15:0]  q);
+    output  logic           dcm_locked);
 
     logic   clk, clk1;
     clk_wiz_0 clk_wiz_inst (
@@ -26,6 +26,6 @@ module top (
     always_ff @(posedge clk) cos_out <= pre_cos_out;
 
     // this is a simple IPI block diagram design.
-    system system_inst (.CLK(clk1), .Q(q));
+    //system system_inst (.CLK(clk1), .Q(q));
 
 endmodule
