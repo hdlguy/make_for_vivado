@@ -1,4 +1,4 @@
-set_property SRC_FILE_INFO {cfile:/autoldap/users/pdudley/proj/make_for_vivado/hdl/top.xdc rfile:../../hdl/top.xdc id:1} [current_design]
+set_property SRC_FILE_INFO {cfile:/home/pedro/proj/make_for_vivado/hdl/top.xdc rfile:../../hdl/top.xdc id:1} [current_design]
 set_property src_info {type:XDC file:1 line:3 export:INPUT save:INPUT read:READ} [current_design]
 set_property PACKAGE_PIN W5 [get_ports clk_in]
 set_property src_info {type:XDC file:1 line:4 export:INPUT save:INPUT read:READ} [current_design]
@@ -67,3 +67,5 @@ set_property src_info {type:XDC file:1 line:42 export:INPUT save:INPUT read:READ
 set_property PACKAGE_PIN H2 [get_ports {q[10]}]
 set_property src_info {type:XDC file:1 line:43 export:INPUT save:INPUT read:READ} [current_design]
 set_property PACKAGE_PIN N1 [get_ports {q[0]}]
+set_property src_info {type:XDC file:1 line:45 export:INPUT save:INPUT read:READ} [current_design]
+set_property IOSTANDARD LVCMOS18 [get_ports {q[*]}]
