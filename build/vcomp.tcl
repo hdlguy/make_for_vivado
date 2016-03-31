@@ -2,7 +2,7 @@
 # This TCL script is intended to be called by gnu make as part of a build system for the Vivado compiler collection.
 # The first argument is the target file. The rest of the arguments are interpreted as input source files.
 if { $::argc > 1 } {
-    create_project -in_memory -part xc7a15tcpg236-2 proj
+    create_project -in_memory -part xc7a50tfgg484-1 proj
     # get the target file
     set target [lindex $argv 0]
     set target_type [file extension $target]
@@ -41,11 +41,12 @@ if { $::argc > 1 } {
     }
     # get the top entity name from the target.
     set top [file rootname [file tail $target]]
-    synth_design -top $top 
     if {$target_type == ".dcp"} {
+        synth_design -mode out_of_context -top $top 
         write_checkpoint -force $target
     }
     if {$target_type == ".bit"} {
+        synth_design -top $top 
         write_checkpoint -force [file rootname $target]_post_synth.dcp
         opt_design;
         place_design;

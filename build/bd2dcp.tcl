@@ -1,5 +1,5 @@
 if { $::argc == 2 } {
-    create_project -in_memory -part xc7a15tcpg236-2 proj
+    create_project -in_memory -part xc7a50tfgg484-1 proj
     source [lindex $argv 1]
     set target [lindex $argv 0]
     set top [file rootname [file tail $target]]
