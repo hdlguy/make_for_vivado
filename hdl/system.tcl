@@ -29,7 +29,7 @@ if { [string first $scripts_vivado_version $current_vivado_version] == -1 } {
 
 # If you do not already have a project created,
 # you can create a project using the following command:
-#    create_project project_1 myproj -part xc7a15tcpg236-2
+#    create_project project_1 myproj -part xc7a50tfgg484-1
 
 # CHECKING IF PROJECT EXISTS
 if { [get_projects -quiet] eq "" } {
@@ -169,7 +169,7 @@ preplace portBus Q -pg 1 -y -160 -defaultsOSRD
 preplace inst c_counter_binary_0 -pg 1 -lvl 1 -y -160 -defaultsOSRD
 preplace netloc CLK_1 1 0 1 N
 preplace netloc c_counter_binary_0_Q 1 1 1 N
-levelinfo -pg 1 -10 100 210 -top -200 -bot 90
+levelinfo -pg 1 -10 100 210 -top -210 -bot 90
 ",
 }
 
