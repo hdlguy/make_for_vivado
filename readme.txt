@@ -13,6 +13,8 @@ top.mcs
     top.bit
         top.v
         top.xdc
+	system.dcp
+	    system.tcl (an IPI block diagram)
         sig_gen.dcp
             sig_gen.v
             sig_gen.xdc
