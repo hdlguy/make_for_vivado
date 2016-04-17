@@ -1,4 +1,6 @@
-#
+# This makefile demonstrates the use of Gnu Make to compile FPGA designs using Xilinx Vivado.
+# Watch out! Gnu Make uses the tab character to indicate commands to execute. If your editor replaces 
+# the tabs with spaces the makefile will not run.
 all: cores ./results/top.mcs
 
 cores: ../cores/c_counter_binary_0/c_counter_binary_0.dcp ../cores/clk_wiz_0/clk_wiz_0.dcp ../cores/dds_compiler_0/dds_compiler_0.dcp
