@@ -53,6 +53,8 @@ if { $::argc > 1 } {
         phys_opt_design;
         route_design;
         write_checkpoint -force [file rootname $target]_post_route.dcp
+        report_clocks -file [file rootname $target]_clocks.rpt
+        report_timing_summary -file [file rootname $target]_timing_summary.rpt
         write_bitstream -verbose -force $target
     }
     close_project
