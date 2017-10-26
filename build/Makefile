@@ -26,7 +26,7 @@ clean:
 	rm --force \
 	./results/system.dcp \
 	./results/top.mcs ./results/top.bit ./results/sig_gen.dcp \
- 	../cores/c_counter_binary_0/c_counter_binary_0.dcp \
+	../cores/c_counter_binary_0/c_counter_binary_0.dcp \
 	../cores/clk_wiz_0/clk_wiz_0.dcp \
 	../cores/dds_compiler_0/dds_compiler_0.dcp
 
