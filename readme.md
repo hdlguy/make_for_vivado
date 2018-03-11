@@ -7,11 +7,13 @@ This project demonstrates the use of gnu make to build FPGA designs using Vivado
 ## files
 The build scripts are:
 ```
-    ./build/makefile    - the makefile that compiles the whole design
-    ./build/vcomp.tcl   - used by make to compile hdl source into .bit or .dcp files.
-    ./build/xci2dcp.tcl - used by make to compile .xci logic core files into .dcp design checkpoint files.
-    ./build/bd2dcp.tcl  - used by make to compile an IPI block diagram description into a .dcp file.
-    ./build/bit2mcs.tcl - used by make to create the .mcs programming file from the bit file.
+    ./build2/Makefile    - the makefile that compiles the whole design
+    ./build2/xci2dcp.tcl - compiles .xci logic core files into .dcp design checkpoint files.
+    ./build2/bd2dcp.tcl  - compiles an IPI block diagram description into a .dcp file.
+    ./build2/hdl2dcp.tcl - uses out_of_context synthesis to convert sub-designs into .dcp files.
+    ./build2/synth_top.tcl - converts the top level design into a synthesized .dcp file.
+    ./build2/dcp2bit.tcl - does place, route and bitstream generation on the top level design.
+    ./build2/bit2mcs.tcl - creates the .mcs programming file from the bit file.
 ```
 
 ## dependency hierarchy

@@ -1,4 +1,4 @@
-// sig_gen.v
+// top.v
 module top (
     input   logic   clk_in,
     output  logic   [15:0]  q,
