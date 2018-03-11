@@ -1,3 +1,7 @@
+# bd2dcp.tcl
+# This script is intended to be called from a Makefile for converting a TCL file into a dcp file.
+# It is assumed tht the tCL file was written from the block diagram editor using the write_bd_tcl command.
+
 if { $::argc == 2 } {
     create_project -in_memory -part xc7a50tfgg484-1 proj
     source [lindex $argv 1]

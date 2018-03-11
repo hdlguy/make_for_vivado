@@ -1,5 +1,7 @@
-# vcomp.tcl
+# hdl2dcp.tcl
 # This TCL script is intended to be called by gnu make as part of a build system for the Vivado compiler collection.
+# It uses out of context synthesis to convert source files, and other .dcp files, into a 
+# synthesized .dcp file for incorporation into a higher level design.
 # The first argument is the target file. The rest of the arguments are interpreted as input source files.
 if { $::argc > 1 } {
 
@@ -53,8 +55,8 @@ if { $::argc > 1 } {
     close_project
 
 } else {
-    puts "This script converts source files (.dcp, .v, .vhd, .vhdl) to a target .dcp file."
-    puts "USAGE: source hdl2dcp.tcl <path/target.dcp> <path/source.x> <path/source.x> <path/source.x> <path/source.x> ... "
+    puts "This script converts source files (.dcp, .sv, .v, .vhd, .vhdl, .xdc) to a target .dcp file."
+    puts "USAGE: source hdl2dcp.tcl <path/target.dcp> <path/source.vhd> <path/source.v> <path/source.dcp> <path/source.xdc> ... "
 }
 
 

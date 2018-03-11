@@ -1,3 +1,6 @@
+# xci2dcp.tcl
+# This script is intended to be used by a Gnu Make build script.
+# It converts a Xilinx core file (.xci) to a synthesized .dcp file.
 if { $::argc == 1 } {
     create_project -in_memory -part xc7a50tfgg484-1 proj
     read_ip  [lindex $argv 0]

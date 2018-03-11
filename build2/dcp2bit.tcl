@@ -1,6 +1,9 @@
-# vcomp.tcl
+# dcp2bit.tcl
 # This TCL script is intended to be called by gnu make as part of a build system for the Vivado compiler collection.
 # The first argument is the target file. The rest of the arguments are interpreted as input source files.
+# The input .dcp file is a checkpoint of the complete chip design synthesized without the out_of_context option so
+# that IO pins are present.
+
 if { $::argc > 1 } {
 
     # get the target file
@@ -41,8 +44,8 @@ if { $::argc > 1 } {
     close_project
 
 } else {
-    puts "This script converts source files (.dcp, .v, .vhd, .vhdl) to a target .dcp file."
-    puts "USAGE: source hdl2dcp.tcl <path/target.dcp> <path/source.x> <path/source.x> <path/source.x> <path/source.x> ... "
+    puts "This script converts the synthesized chip design checkpoint (.dcp) and option constraints files (.xdc) into a placed and routed .bit file."
+    puts "USAGE: source dcp2bit.tcl <path/target.bit> <path/source.dcp> <path/source.xdc> ... "
 }
 
 
