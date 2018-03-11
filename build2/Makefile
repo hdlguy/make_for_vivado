@@ -5,14 +5,17 @@ all: cores ./results/top.mcs
 
 cores: ../cores/c_counter_binary_0/c_counter_binary_0.dcp ../cores/clk_wiz_0/clk_wiz_0.dcp ../cores/dds_compiler_0/dds_compiler_0.dcp
 
-./results/top.bit: ../hdl/top.v ../hdl/top.xdc ../hdl/top_late.xdc ./results/sig_gen.dcp ../cores/clk_wiz_0/clk_wiz_0.dcp ./results/system.dcp
-	vivado -nolog -nojournal -mode batch -notrace -source vcomp.tcl -tclargs $@ $^
+./results/top.bit: ./results/top.dcp ../hdl/top_late.xdc
+	vivado -mode batch -notrace -source dcp2bit.tcl -tclargs $@ $^
+
+./results/top.dcp: ../hdl/top.v ../hdl/top.xdc ./results/sig_gen.dcp ../cores/clk_wiz_0/clk_wiz_0.dcp ./results/system.dcp
+	vivado -nolog -nojournal -mode batch -notrace -source synth_top.tcl -tclargs $@ $^
 
 ./results/system.dcp: ../hdl/system.tcl
 	vivado -nolog -nojournal -mode batch -notrace -source bd2dcp.tcl -tclargs $@ $<
 
 ./results/sig_gen.dcp: ../hdl/sig_gen.v ../cores/dds_compiler_0/dds_compiler_0.dcp ../cores/c_counter_binary_0/c_counter_binary_0.dcp ../hdl/sig_gen.xdc
-	vivado -nolog -nojournal -mode batch -notrace -source vcomp.tcl -tclargs $@ $^
+	vivado -nolog -nojournal -mode batch -notrace -source hdl2dcp.tcl -tclargs $@ $^
 
 %.mcs: %.bit
 	vivado -nolog -nojournal -mode batch -notrace -source bit2mcs.tcl -tclargs $@ $<
@@ -23,8 +26,12 @@ cores: ../cores/c_counter_binary_0/c_counter_binary_0.dcp ../cores/clk_wiz_0/clk
 .PHONY: clean
 clean:
 	rm --force \
+	./results/top.dcp \
+	./results/top_post_route.dcp \
+	./results/top.bit \
+	./results/top.mcs \
 	./results/system.dcp \
-	./results/top.mcs ./results/top.bit ./results/sig_gen.dcp \
+	./results/sig_gen.dcp \
 	../cores/c_counter_binary_0/c_counter_binary_0.dcp \
 	../cores/clk_wiz_0/clk_wiz_0.dcp \
 	../cores/dds_compiler_0/dds_compiler_0.dcp
