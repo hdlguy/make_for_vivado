@@ -41,7 +41,9 @@ top.mcs
 1. Add Vivado to path with something like this
 ```source /opt/Xilinx/Vivado/2017.2/settings64.sh```
 1. Change to the build folder.
-1. run make.
+1. run "make --jobs=4".
 You can test the dependencies by using the "touch" linux command on any of the source files.
+
+Enjoy!
 
         
