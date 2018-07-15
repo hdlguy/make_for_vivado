@@ -1,12 +1,12 @@
-Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
+Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 ------------------------------------------------------------------------------------
-| Tool Version : Vivado v.2017.4 (lin64) Build 2086221 Fri Dec 15 20:54:30 MST 2017
-| Date         : Sat Mar 10 22:15:14 2018
+| Tool Version : Vivado v.2018.2 (lin64) Build 2258646 Thu Jun 14 20:02:38 MDT 2018
+| Date         : Sun Jul 15 17:39:59 2018
 | Host         : pedro-crucial-250 running 64-bit Ubuntu 16.04.4 LTS
 | Command      : report_clocks -file results/top_clocks.rpt
 | Design       : top
 | Device       : 7a50t-fgg484
-| Speed File   : -1  PRODUCTION 1.20 2017-11-01
+| Speed File   : -1  PRODUCTION 1.22 2018-03-21
 ------------------------------------------------------------------------------------
 
 Clock Report
