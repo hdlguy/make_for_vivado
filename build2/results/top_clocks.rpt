@@ -1,8 +1,8 @@
 Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 ------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2018.2 (lin64) Build 2258646 Thu Jun 14 20:02:38 MDT 2018
-| Date         : Sun Jul 15 17:39:59 2018
-| Host         : pedro-crucial-250 running 64-bit Ubuntu 16.04.4 LTS
+| Date         : Wed Aug 22 08:08:23 2018
+| Host         : pedro-Lenovo-ideapad-FLEX-5-1470 running 64-bit Ubuntu 18.04.1 LTS
 | Command      : report_clocks -file results/top_clocks.rpt
 | Design       : top
 | Device       : 7a50t-fgg484
